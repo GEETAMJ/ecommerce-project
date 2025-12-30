@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise 1</title>
+    <style>
+      body{
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+      button{
+        background-color: rgb(25, 135, 84);
+        color: white;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+      .button-container{
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        align-items: center;
+        background-color: rgb(222, 222, 222);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function ButtonWithCounter({count, setCount, newRef})
+      {
+        // const [count, setCount] = React.useState(0)
+        function handleButtonClick(){
+            setCount(count + 1)
+        }
+        return (
+                <button ref={newRef} onClick={handleButtonClick}>
+                    Clicked {count} {count == 1 ? "time" : "times"}
+                </button>
+        )
+      }
+      function App()
+      {
+        const [count, setCount] = React.useState(0)
+        function handleButtonClick(){
+            setCount(count + 1)
+        }
+        function handleCountReset(){
+            setCount(0)
+        }
+        const countButtonRef = React.useRef(null);
+        // function handleAutoClick()
+        // {
+        //   React.useEffect(() => {
+        //     setInterval(() => {
+        //     const buttonElem = countButtonRef.current;
+        //     buttonElem.click()
+        //   }, 1000)
+        //   })
+        // }
+        function handleAutoClick()
+        {
+          setInterval(() => {
+            console.log("Clicked!")
+          const buttonElem = countButtonRef.current;
+          if(buttonElem)
+          {
+            buttonElem.click()
+          }
+        }, 1000)
+        }
+        return (
+            <div className="button-container">
+                {/*<ButtonWithCounter count={count} setCount={setCount}/>*/}
+                <ButtonWithCounter newRef={countButtonRef} count={count} setCount={setCount}/>
+                <button onClick={handleCountReset}>
+                    Reset    
+                </button>
+                <button onClick={handleAutoClick}>
+                    Auto Click    
+                </button>
+            </div>
+        )
+      }
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App/>);
+    </script>
+  </body>
+</html> 
