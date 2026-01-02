@@ -1,23 +1,26 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 import "./CheckoutHeader.css"
+import mobileLogo from "../../assets/mobile-logo.png";
+import checkoutLockIcon from "../../assets/icons/checkout-lock-icon.png"
+
 export function CheckoutHeader() {
     return (
         <div className="checkout-header">
             <div className="header-content">
                 <div className="checkout-header-left-section">
-                    <Link to="/">
+                    <NavLink to="/">
                         <img className="logo" src="images/logo.png" />
-                        <img className="mobile-logo" src="images/mobile-logo.png" />
-                    </Link>
+                        <img className="mobile-logo" src={mobileLogo} />
+                    </NavLink>
                 </div>
 
                 <div className="checkout-header-middle-section">
-                    Checkout (<a className="return-to-home-link"
-                        href="/">3 items</a>)
+                    Checkout (<NavLink className="return-to-home-link"
+                        to="/">3 items</NavLink>)
                 </div>
 
                 <div className="checkout-header-right-section">
-                    <img src="images/icons/checkout-lock-icon.png" />
+                    <img src={checkoutLockIcon} />
                 </div>
             </div>
         </div>

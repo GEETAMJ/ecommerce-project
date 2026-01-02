@@ -1,10 +1,13 @@
 import { Header } from "../components/Header";
+import { NavLink } from "react-router";
 import "../components/Header.css"
 import "./OrdersPage.css"
+import buyAgainIcon from "../assets/icons/buy-again.png"
 
 export function OrdersPage() {
     return (
         <>
+            <link rel="icon" type="image/svg+xml" href="orders-favicon.png" />
             <Header/>
 
             <div className="orders-page">
@@ -47,17 +50,17 @@ export function OrdersPage() {
                                     Quantity: 1
                                 </div>
                                 <button className="buy-again-button button-primary">
-                                    <img className="buy-again-icon" src="images/icons/buy-again.png" />
+                                    <img className="buy-again-icon" src={buyAgainIcon} />
                                     <span className="buy-again-message">Add to Cart</span>
                                 </button>
                             </div>
 
                             <div className="product-actions">
-                                <a href="/tracking">
+                                <NavLink to="/tracking">
                                     <button className="track-package-button button-secondary">
                                         Track package
                                     </button>
-                                </a>
+                                </NavLink>
                             </div>
 
                             <div className="product-image-container">
@@ -75,17 +78,17 @@ export function OrdersPage() {
                                     Quantity: 2
                                 </div>
                                 <button className="buy-again-button button-primary">
-                                    <img className="buy-again-icon" src="images/icons/buy-again.png" />
+                                    <img className="buy-again-icon" src={buyAgainIcon} />
                                     <span className="buy-again-message">Add to Cart</span>
                                 </button>
                             </div>
 
                             <div className="product-actions">
-                                <a href="/tracking">
+                                <NavLink to="/tracking">
                                     <button className="track-package-button button-secondary">
                                         Track package
                                     </button>
-                                </a>
+                                </NavLink>
                             </div>
                         </div>
                     </div>
@@ -126,17 +129,17 @@ export function OrdersPage() {
                                     Quantity: 2
                                 </div>
                                 <button className="buy-again-button button-primary">
-                                    <img className="buy-again-icon" src="images/icons/buy-again.png" />
+                                    <img className="buy-again-icon" src={buyAgainIcon} />
                                     <span className="buy-again-message">Add to Cart</span>
                                 </button>
                             </div>
 
                             <div className="product-actions">
-                                <a href="/tracking">
+                                <NavLink to="/tracking">
                                     <button className="track-package-button button-secondary">
                                         Track package
                                     </button>
-                                </a>
+                                </NavLink>
                             </div>
                         </div>
                     </div>
